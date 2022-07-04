@@ -22,4 +22,7 @@
         android:layout_height="wrap_content"
         android:text="로그아웃" />
 
+
+    //탈퇴처리
+
 </LinearLayout>
