@@ -1,33 +1,33 @@
 {
   "project_info": {
-    "project_number": "926243783362",
-    "project_id": "teamproject-01",
-    "storage_bucket": "teamproject-01.appspot.com"
+    "project_number": "279933163864",
+    "project_id": "asdf-764fe",
+    "storage_bucket": "asdf-764fe.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:926243783362:android:09ca3a0e501d98184fb15b",
+        "mobilesdk_app_id": "1:279933163864:android:4566a8795c6b72be596d2d",
         "android_client_info": {
           "package_name": "com.example.teamproject1"
         }
       },
       "oauth_client": [
         {
-          "client_id": "926243783362-dopj8moc7bkuj208e7qru19oruij40bo.apps.googleusercontent.com",
+          "client_id": "279933163864-v0ibcuvicvfg2ulerog2ulsco0il8lj8.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyDL1MMgNtdBGvxqkYAIuMtQxpkHkMM9QjQ"
+          "current_key": "AIzaSyANNql4ZztpqWahLUPH0uF0Syfwezge9lU"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "926243783362-dopj8moc7bkuj208e7qru19oruij40bo.apps.googleusercontent.com",
+              "client_id": "279933163864-v0ibcuvicvfg2ulerog2ulsco0il8lj8.apps.googleusercontent.com",
               "client_type": 3
             }
           ]
