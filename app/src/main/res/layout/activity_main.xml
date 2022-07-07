@@ -22,6 +22,12 @@
         android:layout_height="wrap_content"
         android:text="로그아웃" />
 
+    <Button
+        android:id="@+id/btn_list"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="회원리스트" />
+
 
     //탈퇴처리
 

@@ -7,7 +7,14 @@ public class UserAccount {
     private String emailId;
     private String password;
 
-    public UserAccount() {}
+    public UserAccount(String emailId, String password) {
+        this.emailId = emailId;
+        this.password = password;
+    }
+
+    public UserAccount() {
+
+    }
 
     public String getIdToken() {
         return idToken;
