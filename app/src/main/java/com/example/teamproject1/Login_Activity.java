@@ -35,6 +35,7 @@ public class Login_Activity extends AppCompatActivity {
 
         EtEmail = findViewById(R.id.et_email);
         EtPwd = findViewById(R.id.et_pwd);
+
         
         Button btn_register = findViewById(R.id.btn_register);
         Button btn_login = findViewById(R.id.btn_login);
@@ -45,6 +46,7 @@ public class Login_Activity extends AppCompatActivity {
             public void onClick(View view) {
                 String strEmail = EtEmail.getText().toString();
                 String strPwd = EtPwd.getText().toString();
+
                 
                 mFirebaseAuth.signInWithEmailAndPassword(strEmail,strPwd).addOnCompleteListener(Login_Activity.this, new OnCompleteListener<AuthResult>() {
                     @Override
