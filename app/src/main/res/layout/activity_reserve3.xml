@@ -42,6 +42,7 @@
             android:layout_margin="20dp"
             android:orientation="vertical">
             <TextView
+
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="#BFC6CD"
@@ -59,25 +60,25 @@
                 >
                 <EditText
                     android:inputType="textMultiLine|textNoSuggestions"
-                    android:id="@+id/btn_date_start"
+                    android:id="@+id/edt_carInfo"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:layout_marginTop="5dp"
                     android:background="@drawable/border"
-                    android:text="방문 차량 정보"
+                    android:hint="방문 차량 정보"
                     android:textAlignment="center"
 
                     />
                 <EditText
                     android:inputType="textMultiLine|textNoSuggestions"
-                    android:id="@+id/btn_date_end"
+                    android:id="@+id/edt_carNum"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:layout_marginTop="5dp"
                     android:background="@drawable/border"
-                    android:text="방문 차량 번호"
+                    android:hint="방문 차량 번호"
                     android:textAlignment="center"
                     />
             </LinearLayout>
@@ -91,10 +92,22 @@
                 android:textAlignment="center"
                 android:textColor="@color/black"
                 android:textSize="15dp" />
-            <Button
+            <EditText
+                android:inputType="textMultiLine|textNoSuggestions"
+                android:id="@+id/text_goods"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="반입 물품 등록 신청"
+                android:layout_weight="1"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/border"
+                android:hint="반입 물품 "
+                android:textAlignment="center" />
+
+            <Button
+                android:id="@+id/btn_reserve_Complete"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="방문 예약 신청"
                 />
         </LinearLayout>
 
