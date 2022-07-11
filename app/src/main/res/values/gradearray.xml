@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="grade_array">
+        <item>1등급</item>
+        <item>2등급</item>
+        <item>3등급</item>
+    </string-array>
+</resources>
