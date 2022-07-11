@@ -21,9 +21,7 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.UserProfileChangeRequest;
 import com.google.firebase.database.core.Tag;
-import com.google.firebase.firestore.DocumentReference;
-import com.google.firebase.firestore.DocumentSnapshot;
-import com.google.firebase.firestore.FirebaseFirestore;
+
 
 import java.util.HashMap;
 import java.util.Map;
@@ -32,7 +30,6 @@ public class UpdateActivity extends AppCompatActivity {
 
     String sKey, sName, sPhone;
     Button btn_update = findViewById(R.id.btn_update);
-    FirebaseFirestore db = FirebaseFirestore.getInstance();
     EditText update_name = findViewById(R.id.update_name);
     EditText update_phone = findViewById(R.id.update_phone);
     EditText update_dept = findViewById(R.id.update_dept);

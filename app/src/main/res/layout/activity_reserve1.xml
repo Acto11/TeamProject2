@@ -69,10 +69,9 @@
                     android:layout_weight="1"
                     android:background="@drawable/selector_radio_button"
                     android:button="@null"
-                    android:checked="true"
                     android:paddingLeft="30dp"
                     android:paddingRight="30dp"
-                    android:text="부서1"
+                    android:text="생산부"
                     android:textAlignment="center"
                     android:textColor="@drawable/selector_radio_text" />
 
@@ -86,7 +85,7 @@
                     android:button="@null"
                     android:paddingLeft="15dp"
                     android:paddingRight="15dp"
-                    android:text="부서2"
+                    android:text="영업부"
                     android:textAlignment="center"
                     android:textColor="@drawable/selector_radio_text" />
 
@@ -99,7 +98,8 @@
                     android:button="@null"
                     android:paddingLeft="25dp"
                     android:paddingRight="25dp"
-                    android:text="부서3"
+                    android:text="관리부
+"
                     android:textAlignment="center"
                     android:textColor="@drawable/selector_radio_text" />
             </RadioGroup>
@@ -145,6 +145,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="bottom"
+                android:enabled="false"
                 android:text="확인" />
         </LinearLayout>
 
@@ -156,6 +157,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:text="다음페이지"
+        android:enabled="false"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
