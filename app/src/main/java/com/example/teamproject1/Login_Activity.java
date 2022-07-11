@@ -35,25 +35,28 @@ public class Login_Activity extends AppCompatActivity {
 
         EtEmail = findViewById(R.id.et_email);
         EtPwd = findViewById(R.id.et_pwd);
+
         
         Button btn_register = findViewById(R.id.btn_register);
         Button btn_login = findViewById(R.id.btn_login);
-
+        ReserveDTO reserveDTO = new ReserveDTO();
         //로그인 클릭시
         btn_login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 String strEmail = EtEmail.getText().toString();
                 String strPwd = EtPwd.getText().toString();
+                reserveDTO.setIdToken(strEmail);
                 
                 mFirebaseAuth.signInWithEmailAndPassword(strEmail,strPwd).addOnCompleteListener(Login_Activity.this, new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         //로그인 성공시
                         if(task.isSuccessful()){
+
                             Intent intent = new Intent(getApplicationContext(),MainActivity.class);
+                            intent.putExtra("reserveDTO",reserveDTO);
                             startActivity(intent);
-                            finish();
                         }else{
                             Toast.makeText(getApplicationContext(),"로그인 실패",Toast.LENGTH_SHORT).show();
 

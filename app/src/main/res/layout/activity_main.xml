@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout  xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -7,24 +7,39 @@
     android:orientation="vertical"
     tools:context=".MainActivity">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="강석민 ! 권준영 ! 김진 ! "
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/btn_logout"
-        android:layout_width="207dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="로그아웃" />
+        android:layout_marginBottom="24dp"
+        android:text="로그아웃"
+        app:layout_constraintBottom_toBottomOf="parent"
+        tools:layout_editor_absoluteX="0dp" />
 
+    <Button
+        android:id="@+id/btn_list"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="회원리스트"
+        app:layout_constraintBottom_toBottomOf="@+id/btn_logout"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.28"
+        tools:layout_editor_absoluteX="0dp" />
+
+    <Button
+        android:id="@+id/btn_goReserve"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="방문 예약 신청"
+
+        app:layout_constraintBottom_toBottomOf="@+id/btn_logout"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.409"
+        tools:layout_editor_absoluteX="0dp" />
 
     //탈퇴처리
 
 
 
-</LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout >
