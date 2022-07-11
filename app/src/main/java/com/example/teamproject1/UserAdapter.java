@@ -1,6 +1,7 @@
 package com.example.teamproject1;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -33,8 +34,21 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.UserVH> {
     @Override
     public void onBindViewHolder(@NonNull UserVH holder, int position) {
         UserAccount user = list.get(holder.getAdapterPosition());
-
+    //이름
         holder.nameText.setText(user.getEmailId());
+
+        //카드뷰
+
+        holder.cardView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(context, UpdateActivity.class);
+                intent.putExtra("key", user.getIdToken());
+                intent.putExtra("name", user.getName());
+                intent.putExtra("phone", user.getPhone());
+                context.startActivity(intent);
+            }
+        });
     }
 
     @Override

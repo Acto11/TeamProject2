@@ -55,7 +55,7 @@ public class ListActivity extends AppCompatActivity {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
 
-//                list.clear();
+                list.clear();
 
                 for(DataSnapshot data : snapshot.getChildren()){
 

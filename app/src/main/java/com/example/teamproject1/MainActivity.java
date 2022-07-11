@@ -38,6 +38,7 @@ public class MainActivity extends AppCompatActivity {
                 finish();
             }
         });
+        //리스트
         btn_list.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
