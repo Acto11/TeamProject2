@@ -12,10 +12,14 @@ public class UserAccount {
     private String dept;
     private String role;
 
-    public UserAccount(String emailId, String password) {
+    public UserAccount(String emailId, String password, String name, String phone, String company, String dept, String role) {
         this.emailId = emailId;
         this.password = password;
-
+        this.name = name;
+        this.phone = phone;
+        this.company = company;
+        this.dept = dept;
+        this.role = role;
     }
 
     public UserAccount() {

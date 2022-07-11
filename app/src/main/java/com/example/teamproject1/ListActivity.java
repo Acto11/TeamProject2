@@ -6,10 +6,14 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
+import android.util.Log;
 
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.database.core.Tag;
+import com.google.firebase.firestore.auth.User;
 
 import java.util.ArrayList;
 
@@ -48,35 +52,44 @@ public class ListActivity extends AppCompatActivity {
         dao = new DAOUser();
 
         loadData();
+
     }
 
     private void loadData(){
-        dao.get().addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
+        FirebaseDatabase.getInstance().getReference("UserAccount").child("UserAccount").addValueEventListener(new ValueEventListener() {
+                @Override
+                public void onDataChange(@NonNull DataSnapshot snapshot) {
 
-                list.clear();
+                    list.clear();
+                    Log.d("size()>>>", ""+snapshot.getChildren());
+                    Log.d("snapshot>>>",""+snapshot.getChildren());
+                    Log.d("size2()>>>", ""+adapter.getItemCount());
+                    for(DataSnapshot data : snapshot.getChildren()){
 
-                for(DataSnapshot data : snapshot.getChildren()){
+                        UserAccount user = data.getValue(UserAccount.class);
 
-                    UserAccount user = data.getValue(UserAccount.class);
+                        //키값 가져오기
+                        key = data.getKey();
 
-                    //키값 가져오기
-                    key = data.getKey();
+                        //키값 담기
+                        user.setIdToken(key);
 
-                    //키값 담기
-                    user.setIdToken(key);
 
-                    //리스트담기
-                    list.add(user);
+                        //리스트담기
+                        list.add(user);
+                        Log.d("list name>>",""+user.getIdToken());
+
+                    }
+                    Log.d("list size()>>",""+list.size());
+                    adapter.notifyDataSetChanged();
                 }
-                adapter.notifyDataSetChanged();
-            }
+                @Override
+                public void onCancelled(@NonNull DatabaseError error) {
 
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
+                }
 
-            }
-        });
+            });
+
+
     }
 }

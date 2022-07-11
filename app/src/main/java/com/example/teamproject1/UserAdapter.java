@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
@@ -46,6 +47,10 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.UserVH> {
                 intent.putExtra("key", user.getIdToken());
                 intent.putExtra("name", user.getName());
                 intent.putExtra("phone", user.getPhone());
+                intent.putExtra("company", user.getCompany());
+                intent.putExtra("Dept", user.getDept());
+                intent.putExtra("Role", user.getRole());
+
                 context.startActivity(intent);
             }
         });
@@ -54,6 +59,7 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.UserVH> {
     @Override
     public int getItemCount() {
         return list.size();
+
     }
 
     class UserVH extends RecyclerView.ViewHolder{
@@ -69,4 +75,5 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.UserVH> {
             cardView = itemView.findViewById(R.id.card_view);
         }
     }
+
 }
