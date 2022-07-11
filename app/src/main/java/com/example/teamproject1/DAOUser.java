@@ -14,7 +14,7 @@ public class DAOUser {
     DAOUser(){
 
         FirebaseDatabase db = FirebaseDatabase.getInstance();
-        databaseReference = db.getReference(UserAccount.class.getName());
+        databaseReference = db.getReference(UserAccount.class.getSimpleName());
 
     }
     //등록
@@ -23,6 +23,9 @@ public class DAOUser {
     }
     //리스트
     public Query get(){
+        return databaseReference;
+    }
+    public DatabaseReference getRef(){
         return databaseReference;
     }
     //수정
