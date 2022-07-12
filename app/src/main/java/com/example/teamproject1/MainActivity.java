@@ -26,7 +26,7 @@ public class MainActivity extends AppCompatActivity {
         Button btn_goReserve = findViewById(R.id.btn_goReserve);
 
         Intent intent = getIntent();
-        ReserveDTO reserveDTO = (ReserveDTO) intent.getSerializableExtra("reserveDTO");
+        String email = (String) intent.getSerializableExtra("str");
 
         btn_logout.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -48,10 +48,12 @@ public class MainActivity extends AppCompatActivity {
         });
         //방문예약신청
         btn_goReserve.setOnClickListener(new View.OnClickListener() {
+            ReserveDTO reserveDTO = new ReserveDTO();
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(MainActivity.this, Reserve_Activity1.class);
                 intent.putExtra("reserveDTO",reserveDTO);
+                reserveDTO.setIdToken(email);
                 startActivity(intent);
             }
         });

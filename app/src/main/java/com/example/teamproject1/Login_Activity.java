@@ -24,19 +24,19 @@ public class Login_Activity extends AppCompatActivity {
     //실시간 데이터베이스
     private DatabaseReference mDatabaseRef;
     private EditText EtEmail,EtPwd;
-    
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login_main);
-        
+
         mFirebaseAuth = FirebaseAuth.getInstance();
         mDatabaseRef = FirebaseDatabase.getInstance().getReference("Visit");
 
         EtEmail = findViewById(R.id.et_email);
         EtPwd = findViewById(R.id.et_pwd);
 
-        
+
         Button btn_register = findViewById(R.id.btn_register);
         Button btn_login = findViewById(R.id.btn_login);
         ReserveDTO reserveDTO = new ReserveDTO();
@@ -46,8 +46,8 @@ public class Login_Activity extends AppCompatActivity {
             public void onClick(View view) {
                 String strEmail = EtEmail.getText().toString();
                 String strPwd = EtPwd.getText().toString();
-                reserveDTO.setIdToken(strEmail);
-                
+
+
                 mFirebaseAuth.signInWithEmailAndPassword(strEmail,strPwd).addOnCompleteListener(Login_Activity.this, new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
@@ -55,7 +55,7 @@ public class Login_Activity extends AppCompatActivity {
                         if(task.isSuccessful()){
 
                             Intent intent = new Intent(getApplicationContext(),MainActivity.class);
-                            intent.putExtra("reserveDTO",reserveDTO);
+                            intent.putExtra("str",strEmail);
                             startActivity(intent);
                         }else{
                             Toast.makeText(getApplicationContext(),"로그인 실패",Toast.LENGTH_SHORT).show();
