@@ -40,7 +40,7 @@ public class Reserve_Activity3 extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 reserveDTO.setCarInfo(edt_carInfo.getText().toString());
-                reserveDTO.setCarInfo(edt_carNum.getText().toString());
+                reserveDTO.setCarNum(edt_carNum.getText().toString());
                 reserveDTO.setGoods(text_goods.getText().toString());
 
                 mDatabaseRef.push().setValue(reserveDTO);

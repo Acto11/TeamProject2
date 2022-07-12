@@ -10,6 +10,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
+import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.TimePicker;
 import android.widget.Toast;
@@ -22,7 +23,8 @@ import java.util.Calendar;
 
 public class Reserve_Activity2 extends AppCompatActivity {
     private DatabaseReference mDatabaseRef;
-    private TextView text_date, text_time, text_purpose;
+    private TextView text_date, text_time;
+    private EditText edit_purpose;
     private  DatePickerDialog datePickerDialog;
     private  TimePickerDialog timePickerDialog;
 
@@ -42,7 +44,7 @@ public class Reserve_Activity2 extends AppCompatActivity {
 
         text_date = (TextView) findViewById(R.id.text_date);
         text_time = (TextView) findViewById(R.id.text_time);
-        text_purpose = (TextView) findViewById(R.id.text_purpose);
+        edit_purpose = (EditText) findViewById(R.id.edit_purpose);
 
 
         Button btn_date_start = (Button) findViewById(R.id.btn_date_start);
@@ -132,7 +134,7 @@ public class Reserve_Activity2 extends AppCompatActivity {
         btn_reserve2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                reserveDTO.setPurpose(text_purpose.getText().toString());
+                reserveDTO.setPurpose(edit_purpose.getText().toString());
                 Intent intent = new Intent(getApplicationContext(),Reserve_Activity3.class);
                 intent.putExtra("reserveDTO",reserveDTO);
                 startActivity(intent);

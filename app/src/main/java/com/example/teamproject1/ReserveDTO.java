@@ -29,21 +29,25 @@ public class ReserveDTO implements Serializable {
     private String carInfo;
     //반입 물품
     private String goods;
+    //방문장소
+    private String location;
 
-    public Map<String, Object> reserveMap(){
-        HashMap<String, Object> reserve = new HashMap<>();
-        reserve.put("reserveNum",idToken);
-        reserve.put("manageNum",idToken2);
-        reserve.put("start_date",start_date);
-        reserve.put("end_date",end_date);
-        reserve.put("start_time",start_time);
-        reserve.put("end_time",end_time);
-        reserve.put("purpose",purpose);
-        reserve.put("carNum",carNum);
-        reserve.put("carInfo",carInfo);
-        reserve.put("goods",goods);
-        return reserve;
-    }
+
+
+//        public Map<String, Object> reserveMap(){
+//        HashMap<String, Object> reserve = new HashMap<>();
+//        reserve.put("reserveNum",idToken);
+//        reserve.put("manageNum",idToken2);
+//        reserve.put("start_date",start_date);
+//        reserve.put("end_date",end_date);
+//        reserve.put("start_time",start_time);
+//        reserve.put("end_time",end_time);
+//        reserve.put("purpose",purpose);
+//        reserve.put("carNum",carNum);
+//        reserve.put("carInfo",carInfo);
+//        reserve.put("goods",goods);
+//        return reserve;
+//    }
 
 
     public ReserveDTO() {
@@ -136,5 +140,12 @@ public class ReserveDTO implements Serializable {
 
     public void setGoods(String goods) {
         this.goods = goods;
+    }
+    public String getLocation() {
+        return location;
+    }
+
+    public void setLocation(String location) {
+        this.location = location;
     }
 }

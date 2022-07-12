@@ -1,23 +1,38 @@
 package com.example.teamproject1;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
+import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
 
     //파이어베이스 인증
     private FirebaseAuth mFirebaseAuth;
+    private DatabaseReference mLocationRef;
+    //장소값
+    private ArrayList<String> locationName = new ArrayList<String>();
+    //VisitLocation 토큰값
+    private ArrayList<String> locationToken = new ArrayList<String>();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        mLocationRef = FirebaseDatabase.getInstance().getReference("Visit").child("visitlocation");
 
         mFirebaseAuth = FirebaseAuth.getInstance();
 
@@ -27,7 +42,7 @@ public class MainActivity extends AppCompatActivity {
 
         Intent intent = getIntent();
         String email = (String) intent.getSerializableExtra("str");
-
+        locationName.add(email);
         btn_logout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -48,13 +63,48 @@ public class MainActivity extends AppCompatActivity {
         });
         //방문예약신청
         btn_goReserve.setOnClickListener(new View.OnClickListener() {
-            ReserveDTO reserveDTO = new ReserveDTO();
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(MainActivity.this, Reserve_Activity1.class);
-                intent.putExtra("reserveDTO",reserveDTO);
-                reserveDTO.setIdToken(email);
-                startActivity(intent);
+                mLocationRef.addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                        for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
+                            locationToken.add(snapshot.getKey());
+                            mLocationRef.child(snapshot.getKey()).child("location2").addValueEventListener(new ValueEventListener() {
+                                @Override
+                                public void onDataChange(@NonNull DataSnapshot snapshot) {
+                                    String value = snapshot.getValue(String.class);
+                                    locationName.add(value);
+                                    Log.d("장소",value.getClass().getName());
+                                    Intent intent = new Intent(MainActivity.this, Reserve_Activity1.class);
+//                                    String array_spinner[] =  ;
+//                                    array_spinner=new String[locationName.size()];
+//                                    for(int i =0;i<locationName.size();i++){
+//                                        array_spinner[i] = locationName.get(i);
+//                                        Log.d("성공값",value);
+//                                    }
+                                    intent.putExtra("locationName",locationName);
+                                    startActivity(intent);
+
+
+                                }
+
+                                @Override
+                                public void onCancelled(@NonNull DatabaseError error) {
+
+                                }
+                            });
+
+                        }
+
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
+
+                    }
+                });
+
             }
         });
 
