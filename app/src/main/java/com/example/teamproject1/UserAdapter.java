@@ -2,6 +2,7 @@ package com.example.teamproject1;
 
 import android.content.Context;
 import android.content.Intent;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -50,6 +51,13 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.UserVH> {
                 intent.putExtra("company", user.getCompany());
                 intent.putExtra("Dept", user.getDept());
                 intent.putExtra("Role", user.getRole());
+
+                Log.d("key>>>", ""+user.getIdToken());
+                Log.d("Dept>>>", ""+user.getDept());
+                Log.d("name>>>", ""+user.getName());
+                Log.d("comp>>>", ""+user.getCompany());
+                Log.d("role>>>", ""+user.getRole());
+                Log.d("phone>>>", ""+user.getPhone());
 
                 context.startActivity(intent);
             }

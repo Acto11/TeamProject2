@@ -16,74 +16,91 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
-import com.google.android.material.bottomnavigation.BottomNavigationView;
-import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.auth.UserProfileChangeRequest;
-import com.google.firebase.database.core.Tag;
-
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.HashMap;
 import java.util.Map;
 
 public class UpdateActivity extends AppCompatActivity {
 
-    String sKey, sName, sPhone;
-    Button btn_update = findViewById(R.id.btn_update);
-    EditText update_name = findViewById(R.id.update_name);
-    EditText update_phone = findViewById(R.id.update_phone);
-    EditText update_dept = findViewById(R.id.update_dept);
-    EditText update_company = findViewById(R.id.update_company);
-    EditText update_role = findViewById(R.id.update_role);
+    String sKey, sName, sPhone, sDept, sCompany, sRole;
+    EditText update_name,update_phone,update_dept,update_company,update_role;
+
+    private DatabaseReference mDatabase;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_update);
 
-        DAOUser dao = new DAOUser();
+        Log.d("key2>>>>>", "" + getIntent().hasExtra("key"));
+        mDatabase = FirebaseDatabase.getInstance().getReference("Visit").child("UserAccount");
+        Button btn_update = findViewById(R.id.btn_update);
+         update_name = findViewById(R.id.update_name);
+         update_phone = findViewById(R.id.update_phone);
+         update_dept = findViewById(R.id.update_dept);
+         update_company = findViewById(R.id.update_company);
+         update_role = findViewById(R.id.update_role);
+
         getAndSetIntentData();
 
         btn_update.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                //변경값
                 String uName = update_name.getText().toString();
                 String uPhone = update_phone.getText().toString();
+                String uDept = update_dept.getText().toString();
+                String uCompany = update_company.getText().toString();
+                String uRole = update_role.getText().toString();
 
 
-                HashMap<String, Object> hashMap = new HashMap<>();
+                //파라미터 세팅
+                Map<String, Object> hashMap = new HashMap<>();
                 hashMap.put("user_name", uName);
                 hashMap.put("user_phone", uPhone);
+                hashMap.put("user_dept", uDept);
+                hashMap.put("user_company", uCompany);
+                hashMap.put("user_role", uRole);
+                Log.d("name>>", "" + uName);
 
 
-                dao.update(sKey, hashMap).addOnSuccessListener(new OnSuccessListener<Void>() {
+                mDatabase.child(sKey).updateChildren(hashMap).addOnCompleteListener(new OnCompleteListener<Void>() {
                     @Override
-                    public void onSuccess(Void unused) {
-                        Toast.makeText(getApplicationContext(), "업데이트성공", Toast.LENGTH_SHORT).show();
+                    public void onComplete(@NonNull Task<Void> task) {
+                        Log.d("정보변경", "Complete");
+                        finish();
                     }
-                }).addOnFailureListener(new OnFailureListener() {
-                    @Override
-                    public void onFailure(@NonNull Exception e) {
-                        Toast.makeText(getApplicationContext(), "업데이트실패", Toast.LENGTH_SHORT).show();
-                    }
+
+
                 });
             }
         });
     }
 
-    public void getAndSetIntentData () {
-        if(getIntent().hasExtra("key") && getIntent().hasExtra("name") &&
-         getIntent().hasExtra("phone")){
+        public void getAndSetIntentData () {
+                  if (getIntent().hasExtra("key") && getIntent().hasExtra("name") &&
+                         getIntent().hasExtra("phone") && getIntent().hasExtra("Dept") &&
+                            getIntent().hasExtra("company") && getIntent().hasExtra("Role")) {
+
+            //데이터가져오기
             sKey = getIntent().getStringExtra("key");
             sName = getIntent().getStringExtra("name");
             sPhone = getIntent().getStringExtra("phone");
+            sCompany = getIntent().getStringExtra("company");
+            sDept = getIntent().getStringExtra("Dept");
+            sRole = getIntent().getStringExtra("Role");
 
+
+            //데이터 넣기
             update_name.setText(sName);
             update_phone.setText(sPhone);
+            update_company.setText(sCompany);
+            update_dept.setText(sDept);
+            update_role.setText(sRole);
+            Log.d("key2>>>", "" + sKey);
+                    }
         }
-        }
-
-
-
-
 }

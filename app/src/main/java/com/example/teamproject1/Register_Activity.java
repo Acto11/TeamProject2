@@ -31,7 +31,7 @@ public class Register_Activity extends AppCompatActivity {
         setContentView(R.layout.activity_activitiy_register);
 //파이어베이스 인증
         mFirebaseAuth = FirebaseAuth.getInstance();
-        mDatabaseRef = FirebaseDatabase.getInstance().getReference("UserAccount");
+        mDatabaseRef = FirebaseDatabase.getInstance().getReference("Visit");
 //EditText(회원가입정보)
         EtEmail = findViewById(R.id.et_email);
         EtPwd = findViewById(R.id.et_pwd);
