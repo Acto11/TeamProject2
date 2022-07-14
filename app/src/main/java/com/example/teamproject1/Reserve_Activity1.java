@@ -15,6 +15,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.CalendarView;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
@@ -34,6 +35,8 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class Reserve_Activity1 extends AppCompatActivity {
     //파이어베이스 인증
@@ -44,6 +47,7 @@ public class Reserve_Activity1 extends AppCompatActivity {
     private ArrayList<String> checkToken = new ArrayList<String>();
     //이메일값
     private ArrayList<String> checkId = new ArrayList<String>();
+
 //    //장소값
 //    private ArrayList<String> locationName = new ArrayList<String>();
 //    //VisitLocation 토큰값
@@ -68,12 +72,15 @@ public class Reserve_Activity1 extends AppCompatActivity {
         ArrayList<String> data= (ArrayList<String>) intent.getSerializableExtra("locationName");
         ReserveDTO reserveDTO = new ReserveDTO();
         reserveDTO.setIdToken(data.get(0));
-        data.remove(0);
+        String email = data.get(0);
+        if(isEmail(email)){
+            data.remove(0);
+        }
         String[] array = data.toArray(new String[data.size()]);
 
         Context mContext = getApplicationContext();
         LayoutInflater inflater = (LayoutInflater) mContext.getSystemService(LAYOUT_INFLATER_SERVICE);
-        View layout = inflater.inflate(R.layout.activity_spinner,null);
+        View layout = inflater.inflate(R.layout.activity_spinner,null,false);
         Spinner s = (Spinner) layout.findViewById(R.id.spinner_loc);
         ArrayAdapter adapter = new ArrayAdapter(this,android.R.layout.simple_spinner_item, array);
         s.setAdapter(adapter);
@@ -199,5 +206,20 @@ public class Reserve_Activity1 extends AppCompatActivity {
         });
 
     }
+
+    public static boolean isEmail(String email){
+        boolean validation = false;
+
+
+        String regex = "^[_a-z0-9-]+(.[_a-z0-9-]+)*@(?:\\w+\\.)+\\w+$";
+        Pattern p = Pattern.compile(regex);
+        Matcher m = p.matcher(email);
+        if(m.matches()) {
+            validation = true;
+        }
+
+        return validation;
+    }
+
 
 }

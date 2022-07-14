@@ -34,6 +34,28 @@
             android:text="방문 예약 신청"
             android:textColor="@color/black"
             android:textSize="18dp" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        android:orientation="vertical">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#BFC6CD"
+            android:text="약관 동의"
+            android:textAlignment="center"
+            android:textColor="@color/black"
+            android:textSize="15dp" />
+        <Button
+            android:id="@+id/btn_terms"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="약관 확인하기"
+            />
+    </LinearLayout>
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -79,50 +101,7 @@
                 android:textColor="@color/black"
                 android:textSize="15dp" />
         </LinearLayout>
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="20dp"
-            android:orientation="vertical">
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="#BFC6CD"
-                android:text="방문 예약 시간"
-                android:textAlignment="center"
-                android:textColor="@color/black"
-                android:textSize="15dp" />
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
 
-                <Button
-                    android:id="@+id/btn_time_start"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="방문 시작 시간"
-                    android:textAlignment="center"
-                    />
-                <Button
-                    android:id="@+id/btn_time_end"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="방문 종료 시간"
-                    android:textAlignment="center"
-                    />
-            </LinearLayout>
-            <TextView
-                android:id="@+id/text_time"
-                android:layout_width="match_parent"
-                android:background="#BFC6CD"
-                android:layout_height="30dp"
-                android:text="선택하신 예약 시간"
-                android:textAlignment="center"
-                android:textColor="@color/black"
-                android:textSize="15dp" />
-        </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -153,6 +132,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:text="다음페이지"
+        android:enabled="false"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />

@@ -18,10 +18,8 @@ public class ReserveDTO implements Serializable {
 
     //방문날짜
     private String start_date;
-    private String end_date;
     //방문시간
-    private String start_time;
-    private String end_time;
+    private String end_date;
     //방문목적
     private String purpose;
     //차량정보
@@ -92,22 +90,6 @@ public class ReserveDTO implements Serializable {
 
     public void setEnd_date(String end_date) {
         this.end_date = end_date;
-    }
-
-    public String getStart_time() {
-        return start_time;
-    }
-
-    public void setStart_time(String start_time) {
-        this.start_time = start_time;
-    }
-
-    public String getEnd_time() {
-        return end_time;
-    }
-
-    public void setEnd_time(String end_time) {
-        this.end_time = end_time;
     }
 
     public String getPurpose() {

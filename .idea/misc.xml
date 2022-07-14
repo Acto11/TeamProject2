@@ -7,15 +7,21 @@
         <entry key="..\:/TeamProject1/app/src/main/res/layout/activity_login_main.xml" value="0.2509057971014493" />
         <entry key="..\:/TeamProject1/app/src/main/res/layout/activity_update.xml" value="0.25" />
         <entry key="..\:/Users/DMB-GICT/AndroidStudioProjects/TeamProject2/app/src/main/res/drawable/border.xml" value="0.147" />
+        <entry key="..\:/Users/DMB-GICT/AndroidStudioProjects/TeamProject2/app/src/main/res/drawable/calendar_selector.xml" value="0.181" />
+        <entry key="..\:/Users/DMB-GICT/AndroidStudioProjects/TeamProject2/app/src/main/res/drawable/ic_delete.xml" value="0.181" />
+        <entry key="..\:/Users/DMB-GICT/AndroidStudioProjects/TeamProject2/app/src/main/res/drawable/ic_launcher_background.xml" value="0.181" />
         <entry key="..\:/Users/DMB-GICT/AndroidStudioProjects/TeamProject2/app/src/main/res/drawable/item_spinner.xml" value="0.259" />
+        <entry key="..\:/Users/DMB-GICT/AndroidStudioProjects/TeamProject2/app/src/main/res/drawable/more.xml" value="0.181" />
         <entry key="..\:/Users/DMB-GICT/AndroidStudioProjects/TeamProject2/app/src/main/res/drawable/selector_radio_button.xml" value="0.147" />
         <entry key="..\:/Users/DMB-GICT/AndroidStudioProjects/TeamProject2/app/src/main/res/drawable/selector_radio_text.xml" value="0.147" />
         <entry key="..\:/Users/DMB-GICT/AndroidStudioProjects/TeamProject2/app/src/main/res/drawable/spinner.xml" value="0.259" />
+        <entry key="..\:/Users/DMB-GICT/AndroidStudioProjects/TeamProject2/app/src/main/res/drawable/transparent_calendar_element.xml" value="0.181" />
         <entry key="..\:/Users/DMB-GICT/AndroidStudioProjects/TeamProject2/app/src/main/res/layout/activity_activitiy_register.xml" value="0.33" />
+        <entry key="..\:/Users/DMB-GICT/AndroidStudioProjects/TeamProject2/app/src/main/res/layout/activity_calendar.xml" value="0.36614583333333334" />
         <entry key="..\:/Users/DMB-GICT/AndroidStudioProjects/TeamProject2/app/src/main/res/layout/activity_location.xml" value="0.33" />
         <entry key="..\:/Users/DMB-GICT/AndroidStudioProjects/TeamProject2/app/src/main/res/layout/activity_login_main.xml" value="0.1" />
         <entry key="..\:/Users/DMB-GICT/AndroidStudioProjects/TeamProject2/app/src/main/res/layout/activity_main.xml" value="0.33" />
-        <entry key="..\:/Users/DMB-GICT/AndroidStudioProjects/TeamProject2/app/src/main/res/layout/activity_reserve1.xml" value="0.1" />
+        <entry key="..\:/Users/DMB-GICT/AndroidStudioProjects/TeamProject2/app/src/main/res/layout/activity_reserve1.xml" value="0.33" />
         <entry key="..\:/Users/DMB-GICT/AndroidStudioProjects/TeamProject2/app/src/main/res/layout/activity_reserve2.xml" value="0.33" />
         <entry key="..\:/Users/DMB-GICT/AndroidStudioProjects/TeamProject2/app/src/main/res/layout/activity_reserve3.xml" value="0.33" />
         <entry key="..\:/Users/DMB-GICT/AndroidStudioProjects/TeamProject2/app/src/main/res/layout/activity_spinner.xml" value="0.2677083333333333" />
