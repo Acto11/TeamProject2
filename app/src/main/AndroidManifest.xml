@@ -21,7 +21,8 @@
             android:exported="false" />
         <activity
             android:name=".Reserve_Activity3"
-            android:exported="false" />
+            android:exported="false"
+            android:parentActivityName=".ListActivity"/>
         <activity
             android:name=".Reserve_Activity2"
             android:exported="false" />
@@ -56,6 +57,9 @@
             android:exported="false"/>
         <activity
             android:name=".LocationActivity"
+            android:exported="false"/>
+        <activity
+            android:name=".ReselistconfActivity"
             android:exported="false"/>
     </application>
 
