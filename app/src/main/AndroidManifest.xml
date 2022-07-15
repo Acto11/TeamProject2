@@ -47,9 +47,16 @@
         <activity
             android:name=".Register_Activity"
             android:exported="false"></activity>
+
         <activity
             android:name=".MainActivity"
             android:exported="false" />
+        <activity
+            android:name=".Locationlist"
+            android:exported="false"/>
+        <activity
+            android:name=".LocationActivity"
+            android:exported="false"/>
     </application>
 
 </manifest>
