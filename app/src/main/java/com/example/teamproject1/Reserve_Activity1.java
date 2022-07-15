@@ -47,6 +47,8 @@ public class Reserve_Activity1 extends AppCompatActivity {
     private ArrayList<String> checkToken = new ArrayList<String>();
     //이메일값
     private ArrayList<String> checkId = new ArrayList<String>();
+    //이름값
+    private ArrayList<String> checkName = new ArrayList<String>();
 
 //    //장소값
 //    private ArrayList<String> locationName = new ArrayList<String>();
@@ -126,6 +128,23 @@ public class Reserve_Activity1 extends AppCompatActivity {
                                 }
                             });
                         }
+                        //이름값 알아오기
+                        for (int i = 0; i < checkToken.size(); i++) {
+                            mDatabaseRef.child(checkToken.get(i)).child("user_name").addValueEventListener(new ValueEventListener() {
+                                @Override
+                                public void onDataChange(@NonNull DataSnapshot snapshot) {
+                                    String value = snapshot.getValue(String.class);
+                                    checkName.add(value);
+
+                                }
+
+                                @Override
+                                public void onCancelled(@NonNull DatabaseError error) {
+
+                                }
+                            });
+                        }
+
                     }
 
                     @Override
@@ -141,17 +160,17 @@ public class Reserve_Activity1 extends AppCompatActivity {
             public void onClick(View view) {
                 String email = edt_Email.getText().toString();
 
-                if (checkId.contains(email)) {
-                    location.setEnabled(true);
-                    reserveDTO.setIdToken2(email);
-                    Toast.makeText(Reserve_Activity1.this, "담당자 확인처리 되었습니다.", Toast.LENGTH_SHORT).show();
-
-
-                } else {
-                    location.setEnabled(false);
-                    Toast.makeText(Reserve_Activity1.this, "담당자 정보를 확인해 주세요", Toast.LENGTH_SHORT).show();
+                for(int i =0;i<checkId.size();i++){
+                    if(checkId.get(i).equals(email)){
+                        reserveDTO.setIdToken2(checkName.get(i));
+                        Toast.makeText(getApplicationContext(), checkName.get(i)+"사원 확인되었습니다.", Toast.LENGTH_SHORT).show();
+                        location.setEnabled(true);
+                        break;
+                    }
                 }
-
+                if(checkId.contains(email)){
+                    Toast.makeText(getApplicationContext(), "이메일을 다시 ㅅ확인해주세요.", Toast.LENGTH_SHORT).show();
+                }
             }
         }); //confirm button
         //장소선택

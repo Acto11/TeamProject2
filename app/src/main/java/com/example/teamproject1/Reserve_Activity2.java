@@ -52,7 +52,7 @@ public class Reserve_Activity2 extends AppCompatActivity {
 
     private MaterialCalendarView calendarView;
 
-    ArrayList<CalendarDay> dates = new ArrayList<>();
+
 
     Calendar calendar = Calendar.getInstance();
 
@@ -185,6 +185,7 @@ public class Reserve_Activity2 extends AppCompatActivity {
 //날짜선택란
         btn_date_start.setOnClickListener(new View.OnClickListener() {
             String shot_Day = "";
+            ArrayList<CalendarDay> dates = new ArrayList<>();
             @Override
             public void onClick(View view) {
                 AlertDialog.Builder builder= new AlertDialog.Builder(Reserve_Activity2.this);
@@ -224,28 +225,41 @@ public class Reserve_Activity2 extends AppCompatActivity {
                 calendarView.addDecorators(new DayDecorator(getApplicationContext()));
                 for(int i =0;i<checkDate.size()/2;i++) {
 
+
                     if (checkDate.size() == 2) {
                         String startdate = checkDate.get(i);
                         String enddate = checkDate.get(i + 1);
+
+
+
                         int startyear = Integer.parseInt(startdate.substring(0, 4));
                         int startmonth = Integer.parseInt(startdate.substring(4, 5)) - 1;
                         int startday = Integer.parseInt(startdate.substring(5, 7));
                         int endyear = Integer.parseInt(enddate.substring(0, 4));
                         int endmonth = Integer.parseInt(enddate.substring(4, 5)) - 1;
                         int endday = Integer.parseInt(enddate.substring(5, 7)) ;
-
+                        Log.d("시작일",startday+"일");
+                        Log.d("종료일",endday+"일");
+                        dates.add(CalendarDay.from(startyear, startmonth, startday));
+                        dates.add(CalendarDay.from(endyear, endmonth, endday));
+                        calendarView.addDecorator(new CalendarDecorator(dates));
                     } else {
                         String startdate = checkDate.get(i);
-                        String enddate = checkDate.get(i + 2);
+                        String enddate = checkDate.get(i + (checkDate.size()/2));
+
                         int startyear = Integer.parseInt(startdate.substring(0, 4));
                         int startmonth = Integer.parseInt(startdate.substring(4, 5)) - 1;
                         int startday = Integer.parseInt(startdate.substring(5, 7));
+
                         int endyear = Integer.parseInt(enddate.substring(0, 4));
                         int endmonth = Integer.parseInt(enddate.substring(4, 5)) - 1;
                         int endday = Integer.parseInt(enddate.substring(5, 7));
-                        int size = endday - startday;
-                        if(size>1){
-                            for(int a=0;a<size;a++){
+                        String size = Integer.toString(checkDate.size());
+                        Log.d("배열 크기",size);
+                        Log.d("시작일",startday+"일");
+                        Log.d("종료일",endday+"일");
+                        if((endday - startday)>1){
+                            for(int a=0;a<(endday - startday);a++){
                                 dates.add(CalendarDay.from(startyear, startmonth, startday+a));
                             }
                         }else {
@@ -262,6 +276,7 @@ public class Reserve_Activity2 extends AppCompatActivity {
         //방문종료 날짜선택
         btn_date_end.setOnClickListener(new View.OnClickListener() {
             String shot_Day = "";
+            ArrayList<CalendarDay> dates = new ArrayList<>();
             @Override
             public void onClick(View view) {
                 AlertDialog.Builder builder= new AlertDialog.Builder(Reserve_Activity2.this);
@@ -300,31 +315,43 @@ public class Reserve_Activity2 extends AppCompatActivity {
                     }
                 });
                 calendarView.addDecorators(new DayDecorator(getApplicationContext()));
-
                 for(int i =0;i<checkDate.size()/2;i++) {
 
                     if (checkDate.size() == 2) {
                         String startdate = checkDate.get(i);
                         String enddate = checkDate.get(i + 1);
+
+
+
                         int startyear = Integer.parseInt(startdate.substring(0, 4));
                         int startmonth = Integer.parseInt(startdate.substring(4, 5)) - 1;
                         int startday = Integer.parseInt(startdate.substring(5, 7));
                         int endyear = Integer.parseInt(enddate.substring(0, 4));
                         int endmonth = Integer.parseInt(enddate.substring(4, 5)) - 1;
                         int endday = Integer.parseInt(enddate.substring(5, 7)) ;
+                        Log.d("시작일",startday+"일");
+                        Log.d("종료일",endday+"일");
+                        dates.add(CalendarDay.from(startyear, startmonth, startday));
+                        dates.add(CalendarDay.from(endyear, endmonth, endday));
+                        calendarView.addDecorator(new CalendarDecorator(dates));
 
                     } else {
                         String startdate = checkDate.get(i);
-                        String enddate = checkDate.get(i + 2);
+                        String enddate = checkDate.get(i + (checkDate.size()/2));
+
                         int startyear = Integer.parseInt(startdate.substring(0, 4));
                         int startmonth = Integer.parseInt(startdate.substring(4, 5)) - 1;
                         int startday = Integer.parseInt(startdate.substring(5, 7));
+
                         int endyear = Integer.parseInt(enddate.substring(0, 4));
                         int endmonth = Integer.parseInt(enddate.substring(4, 5)) - 1;
                         int endday = Integer.parseInt(enddate.substring(5, 7));
-                        int size = endday - startday;
-                        if(size>1){
-                            for(int a=0;a<size;a++){
+                        String size = Integer.toString(checkDate.size());
+                        Log.d("배열 크기",size);
+                        Log.d("시작일",startday+"일");
+                        Log.d("종료일",endday+"일");
+                        if((endday - startday)>1){
+                            for(int a=0;a<(endday - startday);a++){
                                 dates.add(CalendarDay.from(startyear, startmonth, startday+a));
                             }
                         }else {
