@@ -10,6 +10,8 @@ import android.view.View;
 import android.widget.Button;
 
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.auth.UserInfo;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -33,12 +35,13 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         mLocationRef = FirebaseDatabase.getInstance().getReference("Visit").child("visitlocation");
-
         mFirebaseAuth = FirebaseAuth.getInstance();
 
         Button btn_logout = findViewById(R.id.btn_logout);
         Button btn_list = findViewById(R.id.btn_list);
         Button btn_goReserve = findViewById(R.id.btn_goReserve);
+        Button btn_ReserveList = findViewById(R.id.btn_Reservelist);
+        Button btn_ReservePlace = findViewById(R.id.btn_ReservePlace);
 
         Intent intent = getIntent();
         String email = (String) intent.getSerializableExtra("str");
@@ -107,6 +110,21 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
+        btn_ReserveList.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this, Locationlist.class);
+                startActivity(intent);
+            }
+        });
+        btn_ReservePlace.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), LocationActivity.class);
+                startActivity(intent);
+            }
+        });
+
 
 
     }
