@@ -168,8 +168,8 @@ public class Reserve_Activity1 extends AppCompatActivity {
                         break;
                     }
                 }
-                if(checkId.contains(email)){
-                    Toast.makeText(getApplicationContext(), "이메일을 다시 ㅅ확인해주세요.", Toast.LENGTH_SHORT).show();
+                if(!checkId.contains(email)){
+                    Toast.makeText(getApplicationContext(), "담당자 이메일을 다시 확인해주세요.", Toast.LENGTH_SHORT).show();
                 }
             }
         }); //confirm button
