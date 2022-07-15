@@ -59,11 +59,11 @@ public class UpdateActivity extends AppCompatActivity {
 
                 //파라미터 세팅
                 Map<String, Object> hashMap = new HashMap<>();
-                hashMap.put("user_name", uName);
-                hashMap.put("user_phone", uPhone);
-                hashMap.put("user_dept", uDept);
-                hashMap.put("user_company", uCompany);
-                hashMap.put("user_role", uRole);
+                hashMap.put("name", uName);
+                hashMap.put("phone", uPhone);
+                hashMap.put("dept", uDept);
+                hashMap.put("company", uCompany);
+                hashMap.put("role", uRole);
                 Log.d("name>>", "" + uName);
 
 
