@@ -3,7 +3,7 @@
 >회사 방문 예약 시스템
 
 :pushpin: [발표 PPT]()
-[link]: https://docs.google.com/presentation/d/1DHohC9wj7wFJbKeFsCkCDpuM572ZzvNf/edit#slide=id.p1 “Visit”
+<link>: https://docs.google.com/presentation/d/1DHohC9wj7wFJbKeFsCkCDpuM572ZzvNf/edit#slide=id.p1 “Visit”
 
 
 
